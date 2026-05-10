@@ -42,8 +42,9 @@ table = [
     [0, 0, 1, 0, 0],  # x2
     [1, 1, 0, 1, 0],  # x3
     [1, 0, 1, 0, 0],  # x4
-    [1, 0, 0, 0, 0]   # x5
+    [1, 0, 0, 0, 0]  # x5
 ]
+
 
 # --- ФОРМИРОВАНИЕ ВЕРШИН И РЁБЕР ПО ТАБЛИЦЕ ---
 def formatTable():
@@ -56,6 +57,7 @@ def formatTable():
                 edges.append((vertices[i], vertices[j]))
 
     return vertices, edges
+
 
 vertices, edges = formatTable()
 print("Вершины:", vertices)

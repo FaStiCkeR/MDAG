@@ -8,7 +8,7 @@ class Graph {
     // 1. Матрица смежности (A)
     // ------------------------------------------------------------
     buildAdjacencyMatrix() {
-        let A = Array.from({ length: this.n }, () => Array(this.n).fill(0));
+        let A = Array.from({length: this.n}, () => Array(this.n).fill(0));
         for (let [u, v] of this.edges) {
             A[u - 1][v - 1] = 1;
             A[v - 1][u - 1] = 1;
@@ -21,7 +21,7 @@ class Graph {
     // ------------------------------------------------------------
     buildIncidenceMatrix() {
         const m = this.edges.length;   // фактическое количество рёбер
-        let B = Array.from({ length: this.n }, () => Array(m).fill(0));
+        let B = Array.from({length: this.n}, () => Array(m).fill(0));
 
         this.edges.forEach(([u, v], idx) => {
             B[u - 1][idx] = 1;
@@ -36,7 +36,7 @@ class Graph {
     // ------------------------------------------------------------
     buildLineGraphMatrix(B) {
         const m = B[0].length;          // количество рёбер исходного графа
-        let L = Array.from({ length: m }, () => Array(m).fill(0));
+        let L = Array.from({length: m}, () => Array(m).fill(0));
 
         for (let e1 = 0; e1 < m; e1++) {
             for (let e2 = e1 + 1; e2 < m; e2++) {
@@ -88,7 +88,7 @@ class Graph {
         const radius = Math.min(...eccentricities);
         const diameter = Math.max(...eccentricities);
 
-        return { eccentricities, radius, diameter };
+        return {eccentricities, radius, diameter};
     }
 
     // ------------------------------------------------------------
@@ -134,7 +134,7 @@ class Graph {
 
     showMetrics() {
         const A = this.buildAdjacencyMatrix();
-        const { eccentricities, radius, diameter } = this.computeGraphMetrics(A);
+        const {eccentricities, radius, diameter} = this.computeGraphMetrics(A);
         console.log('Эксцентриситеты:', eccentricities);
         console.log('Радиус =', radius);
         console.log('Диаметр =', diameter);
